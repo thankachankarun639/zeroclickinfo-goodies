@@ -1,0 +1,211 @@
+{
+    "id": "mysql_cheat_sheet",
+    "name": "MySQL",
+    "description": "Database Query Language",
+    "metadata": {
+        "sourceName": "MySQLCheatSheet",
+        "sourceUrl": "http://cse.unl.edu/~sscott/ShowFiles/SQL/CheatSheet/SQLCheatSheet.html"
+    },
+    "template_type": "terminal",
+    "section_order": [
+       "Basic MySQL Commands",
+       "SQL to Modify",
+       "SQL to Query",
+        "Function in MySQL",
+        "Importing and Exporting",
+        "Datatypes in MYSQL"
+        
+    ],
+    "sections": {
+       "Basic MySQL Commands": [{
+            "val": "Running MySQL",
+            "key": "mysql -uusername -ppassword"
+        }, {
+            "val": "List all databases",
+            "key": "SHOW DATABASES;"
+        }, {
+            "val": "Create database",
+            "key": "CREATE DATABASE database;"
+        }, {
+            "val": "Use a database",
+            "key": "USE database;"
+        }, {
+            "val": "List tables in the database",
+            "key": "SHOW TABLES;"
+        }, {
+            "val": "Show the structure of a table",
+            "key": "DESCRIBE table; -OR- SHOW COLUMNS FROM table;"
+        }, {
+            "val": "Delete a database (Careful)",
+            "key": "DROP DATABASE database;"
+        }],
+        "SQL to Modify": [{
+            "val": "Create table",
+            "key": "CREATE TABLE table (column1 type NOT NULL AUTO_INCREMENT,column2 type NOT NULL AUTO_INCREMENT,...others,PRIMARY KEY (column(s))); "
+        },{
+            "val": "Insert data",
+            "key": "INSERT INTO table VALUES (list of values); -OR- INSERT INTO table SET column1=value1,column2=value2,...,columnk=valuek; -OR- INSERT INTO table (column1,column2,...) VALUES (value1,value2...); "
+        }, {
+            "val": "Delete data",
+            "key": "DELETE FROM table WHERE condition(s);"
+        }, {
+            "val": "Updating Data",
+            "key": "UPDATE table SET column1=value1, column2=value2,...columnk=valuek WHERE condition(s); "
+        }, {
+            "val": "Insert column",
+            "key": "ALTER TABLE table ADD COLUMN column type options;"
+        }, {
+            "val": "Delete column",
+            "key": "ALTER TABLE table DROP COLUMN column;"
+        }, {
+            "val": "Delete table (Careful!)",
+            "key": "DROP TABLE IF EXISTS table;"
+        }],
+        "SQL to Query": [{
+            "val": "To get all columns",
+            "key": "SELECT * FROM table;"
+        }, {
+            "val": "To get some columns",
+            "key": "SELECT column1,column2,... FROM table;"
+        }, {
+            "val": "To get some rows/columns",
+            "key": "SELECT column1,column2,...FROM table WHERE condition(s);"
+        }, {
+            "val": "To avoid duplicates",
+            "key": "SELECT DISTINCT column(s) FROM table;"
+        }, {
+            "val": "Ordering and Sorting",
+            "key": "SELECT column1,column2,...FROM table ORDER BY column(s) DESC; "
+        },  {
+            "val": "Grouping",
+            "key": "SELECT column1,column2,...FROM table GROUP BY column(s); "
+        }, {
+            "val": "Grouping and Filtering",
+            "key": "SELECT column1,column2,...FROM table GROUP BY column(s) HAVING condition(s); "
+        }, {
+            "val": "Joins",
+            "key": "SELECT column1,column2,... FROM table1,table2,...WHERE condition(s); Ex: SELECT LastName,Point FROM Students,Assignments WHERE AssignmentID=12 AND Students.StudentID=Assignments.StudentID;  "
+        },{
+            "val": "Setting column Aliases",
+            "key": "SELECT column1 AS alias1, column2 AS alias2, ...FROM table1; "
+        }, {
+            "val": " Setting Table Aliases",
+            "key": "SELECT column1,column2,...FROM table1 alias1, table2 alias2,... WHERE condition(s);"
+        }, {
+            "val": "Everything (Please note the order of where-group-having clauses)",
+            "key": "SELECT DISTINCT column1 AS alias1,column2 AS alias2, ... FROM table1 alias1,table2 alias2,...WHERE condition(s) GROUP BY column(s) HAVING condition(s) ORDER BY column(s) DESC; "
+        }],
+        "Importing and Exporting": [{
+            "val": "Generic Importing",
+            "key": "mysql -uusername -ppassword < filename"
+        }, {
+            "val": "Generic Exporting",
+            "key": "mysqldump -uusername -ppassword database tables(optional) > filename"
+        }],
+        "Function in MySQL": [ {
+            "val": "Count rows per group",
+            "key": "COUNT(column | *)"
+        }, {
+            "val": "Average value of group",
+            "key": "AVG(column)"
+        }, {
+            "val": "Minumum value of group",
+            "key": "MIN(column)"
+        }, {
+            "val": "Maximum value of group",
+            "key": "MAX(column)"
+        }, {
+            "val": "Sum values in a group",
+            "key": "SUM(column)"
+        }, {
+            "val": "Absolute value",
+            "key": "abs(number)"
+        }, {
+            "val": "Rounding numbers",
+            "key": "round(number)"
+        }, {
+            "val": "Largest integer not greater",
+            "key": "floor(number)"
+        }, {
+            "val": "Smallest integer not smaller",
+            "key": "ceiling(number)"
+        }, {
+            "val": "Square root",
+            "key": "sqrt(number)"
+        }, {
+            "val": "nth power",
+            "key": "pow(base,exponent)"
+        }, {
+            "val": "random number n, 0<n<1",
+            "key": "rand()"
+        }, {
+            "val": "sin (similar cos, etc.)",
+            "key": "sin(number)"
+        },{
+            "val": "Compare strings",
+            "key": "strcmp(string1,string2)"
+        }, {
+            "val": "Convert to lower case",
+            "key": "lower(string)"
+        }, {
+            "val": "Convert to upper case",
+            "key": "upper(string)"
+        }, {
+            "val": "Left-trim whitespace",
+            "key": "ltrim(string)"
+        }, {
+            "val": "Substring of string",
+            "key": "substring(string,index1,index2) "
+        }, {
+            "val": "Encrypt password",
+            "key": "password(string)"
+        }, {
+            "val": "Encode string",
+            "key": "encode(string,key)"
+        }, {
+            "val": "Decode string",
+            "key": "decode(string,key)"
+        }, {
+            "val": "Get date",
+            "key": "curdate()"
+        }, {
+            "val": "Get time",
+            "key": "curtime()"
+        }, {
+            "val": "Extract day name from date string",
+            "key": "dayname(string)"
+        }, {
+            "val": "Extract day number from date string",
+            "key": "dayofweek(string)"
+        }, {
+            "val": "Extract month from date string",
+            "key": "monthname(string)"
+        }],
+        "Datatypes in MYSQL": [{
+            "val": "Integers",
+            "key": "int(M)"
+        }, {
+            "val": "Floating-point (real) numbers ",
+            "key": "float(M,D)"
+        }, {
+            "val": "Double-precision floating-point",
+            "key": "double(M,D)"
+        }, {
+            "val": "Dates and times",
+            "key": "timestamp(M)"
+        }, {
+            "val": "Fixed-length strings",
+            "key": "char(M)"
+        }, {
+            "val": "Variable-length strings",
+            "key": "varchar(M)"
+        }, {
+            "val": "A large amount of text",
+            "key": "blob"
+        }, {
+            "val": "Values chosen from a list",
+            "key": "enum('value1',value2',...)"
+        }]
+         
+    }
+}
